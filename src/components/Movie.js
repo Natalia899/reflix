@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom'
 
-
 class Movie extends Component {
-
     rentTheMovie = () => {
         this.props.rentTheMovie(this.props.movie.id)
     }
@@ -16,16 +14,15 @@ class Movie extends Component {
     render() {
         return (
             <div className='movie'>
-                {console.log('???')}
-                <img className='movieImage' src={this.props.movie.img} alt="" />
-                <div className='movieName'>{this.props.movie.title}</div>
-                <span onClick={this.rentTheMovie} className='add'>+</span>
-                <span onClick={this.removeFromRented} className='remove'>-</span>
-                <Link to={`/catalog/movie/${this.props.movie.title}`}>More</Link>
-               {/* <Link to={`/movie/${this.props.movie.id}`}>Morehhhhh</Link> */}
-               {/* <Link to="/">Home</Link> */}
+                <Link to={`/catalog/movie/${this.props.movie.title}`}>
+                    <img className='movieImage' src={this.props.movie.img} alt="" />
+                    <div className='movieName'>{this.props.movie.title}</div>
+                </Link>
+                    <span onClick={this.rentTheMovie} className='add'>+</span>
+                    <span onClick={this.removeFromRented} className='remove'>-</span>
+               
             </div>
-        );
+        )
     }
 }
 

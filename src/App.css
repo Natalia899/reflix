@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+#root {
+    background-color: rgb(141, 153, 174);
+}
+
+.allMovies {
+
+   display: grid;
+   grid-template-columns: repeat(3 1fr);
+   grid-template-rows: repeat(3 1fr);
+   grid-template-areas: "m m m", "m m m" "m m m"
+  
+
+}
+
+img {
+  height: 250px;
+  width: 180px;
+ 
+}
+
+.movie {
+/* margin: 5%; */
+  grid-area: m;
+}
+
+.budget {
+  text-align: end;
+  color: rgb(237, 246, 249);
+  margin-right: 10%;
+}
+
+input {
+  background-color: rgb(237, 246, 249);
+  color:  rgb(141, 153, 174);
+  height: 30px;
+  font-size: larger;
+  width: 75%;
+  padding-left: 20px;
+  border-radius: 5px;
+  border: rgb(34, 34, 59) solid 3px;
+}
+
