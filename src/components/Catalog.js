@@ -19,10 +19,12 @@ class Catalog extends Component {
 
     inputChange = (event) => {
         let value = event.target.value
-        this.setState({ input: value }, function () {
+        console.log(value)
+        this.setState({ input: value },  () => {
+            console.log(this.state.input);
             let tempMovies = [...this.state.relevantMovies]
-            let filteredMovies = tempMovies.filter(m => { return m.title.toLowerCase().includes(this.state.input.toLowerCase()) })
-            this.setState({ relevantMovies: filteredMovies }, function () {
+          let filteredMovies = tempMovies.filter(m => { return m.title.toLowerCase().includes(this.state.input.toLowerCase()) })
+            this.setState({ relevantMovies: filteredMovies }, () => {
                 console.log(this.state.relevantMovies);
             })
         })

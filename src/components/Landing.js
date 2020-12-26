@@ -13,7 +13,7 @@ class Landing extends Component {
     render() {
         return (
             <div class='users'>{this.state.users.map(u => {
-                return <Link to="/catalog"><div class='user' key={Math.random()}> {u.name}</div></Link>
+                return <Link to="/catalog"><div className='user' key={Math.random()}> {u.name}</div></Link>
             })}</div>
         )
     }
