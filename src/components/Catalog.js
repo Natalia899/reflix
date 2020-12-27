@@ -19,14 +19,10 @@ class Catalog extends Component {
 
     inputChange = (event) => {
         let value = event.target.value
-        console.log(value)
-        this.setState({ input: value },  () => {
-            console.log(this.state.input);
-            let tempMovies = [...this.state.relevantMovies]
-          let filteredMovies = tempMovies.filter(m => { return m.title.toLowerCase().includes(this.state.input.toLowerCase()) })
-            this.setState({ relevantMovies: filteredMovies }, () => {
-                console.log(this.state.relevantMovies);
-            })
+        this.setState({ input: value }, () => {
+            let tempMovies = [...this.props.movies]
+            let filteredMovies = tempMovies.filter(m => { return m.title.toLowerCase().includes(this.state.input.toLowerCase()) })
+            this.setState({ relevantMovies: filteredMovies })
         })
     }
 
@@ -35,7 +31,7 @@ class Catalog extends Component {
         if (tempBudget >= 3) {
             tempBudget -= 3
             this.setState({ budget: tempBudget }, function () {
-                let tempCatalog = [...this.state.relevantMovies]
+                let tempCatalog = [...this.props.movies]
                 tempCatalog.find(m => m.id === movieId).isRented = true
                 this.setState({ relevantMovies: tempCatalog })
             })
@@ -49,25 +45,27 @@ class Catalog extends Component {
         let tempBudget = this.state.budget
         tempBudget += 3
         this.setState({ budget: tempBudget }, function () {
-            let tempCatalog = [...this.state.relevantMovies]
+            let tempCatalog = [...this.props.movies]
             tempCatalog.find(m => m.id === movieId).isRented = false
             this.setState({ relevantMovies: tempCatalog })
         })
     }
 
+
+
     render() {
         return (
             <div className='Catalog'>
                 <p className='budget'>Budget: {this.state.budget}$</p>
-                <input onChange={this.inputChange} type='text' />
-              
+                <input value={this.state.input} onChange={this.inputChange} type='text' />
+
 
                 <div >Rented: <div className='rentedMovies'>{this.state.relevantMovies.filter(s => s.isRented).map(m => {
                     return <Movie movie={m} key={m.id} rentTheMovie={this.rentTheMovie} removeFromRented={this.removeFromRented} />
-                })}</div> 
+                })}</div>
                 </div>
 
-                <div> Catalog: <div  className='allMovies'>{this.state.relevantMovies.filter(s => !s.isRented).map(m => {
+                <div> Catalog: <div className='allMovies'>{this.state.relevantMovies.filter(s => !s.isRented).map(m => {
                     return <Movie movie={m} key={m.id} rentTheMovie={this.rentTheMovie} removeFromRented={this.removeFromRented} />
                 })}</div>
                 </div>
