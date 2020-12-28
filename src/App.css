@@ -1,0 +1,115 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#root {
+    background-color: rgb(141, 153, 174);
+}
+
+.allMovies {
+
+   display: grid;
+   /* grid-template-columns: repeat(3 1fr);
+   grid-template-rows: repeat(3 1fr);
+   grid-template-areas: "m m m", "m m m" "m m m" */
+  
+
+}
+
+img {
+  height: 250px;
+  width: 180px;
+ 
+}
+
+.movie {
+/* margin: 5%; */
+  /* grid-area: m; */
+}
+
+.budget {
+  text-align: end;
+  color: rgb(237, 246, 249);
+  margin-right: 10%;
+}
+
+input {
+  background-color: rgb(237, 246, 249);
+  color:  rgb(141, 153, 174);
+  height: 30px;
+  font-size: larger;
+  width: 75%;
+  padding-left: 20px;
+  border-radius: 5px;
+  border: rgb(34, 34, 59) solid 3px;
+}
+
+.user {
+  height: 250px;
+  width: 250px;
+  display: inline-block;
+  justify-content: center;
+ 
+  
+}
+ .users {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin: 10px;
+  justify-items: center;
+  
+ }
+
+ #main-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-content: center;
+  z-index: 3;
+  background-color: rgb(237, 246, 249);
+  width: 100%;
+  height: 75px;
+  top: 0;
+  overflow: hidden;
+
+ }
+
+ .allMovies {
+   display: inline-block;
+ }
+
